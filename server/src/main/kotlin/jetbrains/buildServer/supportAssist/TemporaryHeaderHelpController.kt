@@ -1,4 +1,4 @@
-package com.demoDomain.teamcity.demoPlugin.controllers
+package jetbrains.buildServer.supportAssist
 
 import jetbrains.buildServer.web.openapi.PagePlaces
 import jetbrains.buildServer.web.openapi.PlaceId
@@ -16,7 +16,7 @@ class TemporaryHeaderHelpController(
         // in the Sakura UI and are loading asynchronously.
         SimplePageExtension(
             places,
-            PlaceId("SAKURA_BEFORE_CONTENT"),
+            PlaceId("SAKURA_HEADER_USERNAME_BEFORE"),
             PLUGIN_NAME,
             descriptor.getPluginResourcesPath("basic-plugin.jsp")
         ).addCssFile("basic-plugin.css").register()
@@ -25,13 +25,13 @@ class TemporaryHeaderHelpController(
         // and, generally speaking, stay the same, as they were the last decade
         SimplePageExtension(
             places,
-            PlaceId.BEFORE_CONTENT,
+            PlaceId.ALL_PAGES_HEADER,
             PLUGIN_NAME,
             descriptor.getPluginResourcesPath("basic-plugin.jsp")
         ).addCssFile("basic-plugin.css").register()
     }
 
     companion object {
-        private const val PLUGIN_NAME = "SakuraUI-Plugin"
+        private const val PLUGIN_NAME = "supportPlugin"
     }
 }
