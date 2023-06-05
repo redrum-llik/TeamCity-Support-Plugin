@@ -14,7 +14,7 @@ plugins {
 }
 
 ext {
-    set("teamcityVersion", "2022.10")
+    set("teamcityVersion", "2023.05")
 }
 
 group = "jetbrains.buildserver"
