@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.teamcity.xstream:xstream:1.4.11.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.jetbrains.teamcity.xstream" artifactId="xstream" version="1.4.11.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/teamcity/xstream/xstream/1.4.11.1/xstream-1.4.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

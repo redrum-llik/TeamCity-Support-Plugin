@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: de.galan.packtag:packtag-core:3.13.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="de.galan.packtag" artifactId="packtag-core" version="3.13.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/galan/packtag/packtag-core/3.13.0/packtag-core-3.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/galan/packtag/packtag-core/3.13.0/packtag-core-3.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

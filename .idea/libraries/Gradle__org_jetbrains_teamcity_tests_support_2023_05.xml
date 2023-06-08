@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.teamcity:tests-support:2023.05" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.jetbrains.teamcity" artifactId="tests-support" version="2023.05" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/tests-support/2023.05/41d9af5fb785a642d587522a20747d2b5a301f54/tests-support-2023.05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/tests-support/2023.05/8fb1568eddbcec97dce1e21453a2e3cce00bcfa0/tests-support-2023.05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

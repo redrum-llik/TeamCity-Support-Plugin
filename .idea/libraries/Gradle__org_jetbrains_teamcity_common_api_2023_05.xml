@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.teamcity:common-api:2023.05" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.jetbrains.teamcity" artifactId="common-api" version="2023.05" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/common-api/2023.05/fefa20b55e472fde78ffe0500663291bfb3e6921/common-api-2023.05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/common-api/2023.05/2dbf49c21b400cbb82c2af3f6a06d41c8efcbf9d/common-api-2023.05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

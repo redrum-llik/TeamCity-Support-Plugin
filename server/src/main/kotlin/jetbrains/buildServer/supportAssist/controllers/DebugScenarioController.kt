@@ -8,9 +8,12 @@ import jetbrains.buildServer.supportAssist.execution.StepExecutionError
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractExecutionScenario
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractScenarioStep
 import jetbrains.buildServer.supportAssist.execution.impl.ErrorImpl
+import jetbrains.buildServer.supportAssist.execution.impl.steps.FetchServerInfoToFolderStep
 import jetbrains.buildServer.web.openapi.WebControllerManager
 import org.jetbrains.annotations.NotNull
 import org.springframework.web.servlet.ModelAndView
+import java.io.File
+import java.nio.file.Path
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -46,7 +49,13 @@ class DebugScenarioController(
             }
         }
 
-        val steps = listOf(minimalStep)
+        // define another step that prints out server info to file
+        val targetFile = File("C:\\Users\\Fedor\\Downloads\\out.json")
+        val fetchServerInfoStep = FetchServerInfoToFolderStep(
+            targetFile, myServer
+        )
+
+        val steps = listOf(minimalStep, fetchServerInfoStep)
 
         // define a minimal scenario with above step
         val scenario = object : AbstractExecutionScenario(steps) {

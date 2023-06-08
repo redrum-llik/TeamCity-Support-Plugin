@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="support-plugin-1.0-dev">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/server/build/libs/support-plugin-1.0-dev.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

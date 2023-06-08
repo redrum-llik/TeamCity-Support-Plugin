@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: javax.servlet:servlet-api:2.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="javax.servlet" artifactId="servlet-api" version="2.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.2/servlet-api-2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

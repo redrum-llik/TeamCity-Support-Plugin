@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: net.sf.ehcache:ehcache-core:1.7.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="net.sf.ehcache" artifactId="ehcache-core" version="1.7.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-core/1.7.2/ehcache-core-1.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-core/1.7.2/ehcache-core-1.7.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: eu.bitwalker:UserAgentUtils:1.17" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="eu.bitwalker" artifactId="UserAgentUtils" version="1.17" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/bitwalker/UserAgentUtils/1.17/UserAgentUtils-1.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/bitwalker/UserAgentUtils/1.17/UserAgentUtils-1.17-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

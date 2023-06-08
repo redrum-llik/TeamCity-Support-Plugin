@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: jaxen:jaxen:1.1.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="jaxen" artifactId="jaxen" version="1.1.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

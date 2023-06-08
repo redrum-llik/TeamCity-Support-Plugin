@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.teamcity:server-api:2023.05" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.jetbrains.teamcity" artifactId="server-api" version="2023.05" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/server-api/2023.05/e6252f34c15ee584ad1b4edcdd4e9951974a06c6/server-api-2023.05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.teamcity/server-api/2023.05/71fb1ab1ebf1d924fdeb610e3fd5b5e509ddbd14/server-api-2023.05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
