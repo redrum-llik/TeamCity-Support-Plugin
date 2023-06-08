@@ -6,7 +6,8 @@ plugins {
 dependencies {
     compile(kotlin("stdlib"))
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.3") {
-        exclude("com.fasterxml.jackson.datatype")
+        exclude("com.fasterxml.jackson.datatype", "jackson-datatype-jsr310")
+        exclude("com.fasterxml.jackson.datatype", "jackson-datatype-jdk8")
     }
 }
 
