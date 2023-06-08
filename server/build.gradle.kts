@@ -5,8 +5,9 @@ plugins {
 
 dependencies {
     compile(kotlin("stdlib"))
-
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.+")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.3") {
+        exclude("com.fasterxml.jackson.datatype")
+    }
 }
 
 teamcity {

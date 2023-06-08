@@ -49,13 +49,7 @@ class DebugScenarioController(
             }
         }
 
-        // define another step that prints out server info to file
-        val targetFile = File("C:\\Users\\Fedor\\Downloads\\out.json")
-        val fetchServerInfoStep = FetchServerInfoToFolderStep(
-            targetFile, myServer
-        )
-
-        val steps = listOf(minimalStep, fetchServerInfoStep)
+        val steps = listOf(minimalStep)
 
         // define a minimal scenario with above step
         val scenario = object : AbstractExecutionScenario(steps) {

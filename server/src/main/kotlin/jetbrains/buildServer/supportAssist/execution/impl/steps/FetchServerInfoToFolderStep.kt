@@ -25,6 +25,7 @@ class FetchServerInfoToFolderStep(
         info["licensingPolicy"] = buildServer.licensingPolicy
 
         val mapper = jacksonObjectMapper()
+            .writerWithDefaultPrettyPrinter()
 
         if (targetFile.isDirectory) {
             val error = NotAFileError(targetFile)
