@@ -11,7 +11,9 @@ interface ScenarioStep {
 
     fun isExecuted(): Boolean
 
-    fun getErrors(): List<StepExecutionError>
+    fun getProblems(): List<StepExecutionProblem>
 
-    fun hasErrors(): Boolean
+    fun hasErrorLevelProblems(): Boolean
+
+    fun describe(): String
 }

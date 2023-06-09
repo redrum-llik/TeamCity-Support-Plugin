@@ -4,16 +4,13 @@ import jetbrains.buildServer.controllers.BaseController
 import jetbrains.buildServer.log.Loggers
 import jetbrains.buildServer.serverSide.SBuildServer
 import jetbrains.buildServer.supportAssist.execution.Severity
-import jetbrains.buildServer.supportAssist.execution.StepExecutionError
+import jetbrains.buildServer.supportAssist.execution.StepExecutionProblem
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractExecutionScenario
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractScenarioStep
-import jetbrains.buildServer.supportAssist.execution.impl.ErrorImpl
-import jetbrains.buildServer.supportAssist.execution.impl.steps.FetchServerInfoToFolderStep
+import jetbrains.buildServer.supportAssist.execution.impl.ProblemImpl
 import jetbrains.buildServer.web.openapi.WebControllerManager
 import org.jetbrains.annotations.NotNull
 import org.springframework.web.servlet.ModelAndView
-import java.io.File
-import java.nio.file.Path
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -41,11 +38,15 @@ class DebugScenarioController(
         val minimalStep = object : AbstractScenarioStep() {
             override fun doExecute() {
                 Loggers.SERVER.warn("This scenario works!")
-                val error = ErrorImpl(
+                val error = ProblemImpl(
                     "This is an example of thrown error",
                     Severity.WARNING
                 )
-                addError(error)
+                addProblem(error)
+            }
+
+            override fun describe(): String {
+                return "This is a mock step that just logs something into server log and returns a warning problem"
             }
         }
 
@@ -53,13 +54,17 @@ class DebugScenarioController(
 
         // define a minimal scenario with above step
         val scenario = object : AbstractExecutionScenario(steps) {
-            override fun execute(): List<StepExecutionError> {
-                val errors: MutableList<List<StepExecutionError>> = mutableListOf()
+            override fun execute(): List<StepExecutionProblem> {
+                val problems: MutableList<List<StepExecutionProblem>> = mutableListOf()
                 for (step in this) {
                     step.execute()
-                    errors.add(step.getErrors())
+                    problems.add(step.getProblems())
+                    if (step.hasErrorLevelProblems()) {
+                        break // do not proceed if step reports at least one error-level execution problem
+                    }
+
                 }
-                return errors.flatten()
+                return problems.flatten()
             }
         }
 

@@ -1,7 +1,8 @@
 package jetbrains.buildServer.supportAssist.execution.impl
 
 import jetbrains.buildServer.supportAssist.execution.ScenarioStep
-import jetbrains.buildServer.supportAssist.execution.StepExecutionError
+import jetbrains.buildServer.supportAssist.execution.Severity
+import jetbrains.buildServer.supportAssist.execution.StepExecutionProblem
 
 /**
  * An abstract class that implements the [ScenarioStep] interface and provides basic functionality
@@ -9,7 +10,7 @@ import jetbrains.buildServer.supportAssist.execution.StepExecutionError
  */
 abstract class AbstractScenarioStep : ScenarioStep {
     private var myIsExecuted = false
-    private val myErrors: ArrayList<StepExecutionError> = arrayListOf()
+    private val myProblems: ArrayList<StepExecutionProblem> = arrayListOf()
 
     override fun isExecuted(): Boolean {
         return myIsExecuted
@@ -22,15 +23,15 @@ abstract class AbstractScenarioStep : ScenarioStep {
         myIsExecuted = true
     }
 
-    override fun getErrors(): List<StepExecutionError> {
-        return myErrors
+    override fun getProblems(): List<StepExecutionProblem> {
+        return myProblems
     }
 
-    override fun hasErrors(): Boolean {
-        return myErrors.isNotEmpty()
+    override fun hasErrorLevelProblems(): Boolean {
+        return myProblems.any { it.getSeverity() == Severity.ERROR }
     }
 
-    protected fun addError(error: StepExecutionError) {
-        myErrors.add(error)
+    protected fun addProblem(error: StepExecutionProblem) {
+        myProblems.add(error)
     }
 }

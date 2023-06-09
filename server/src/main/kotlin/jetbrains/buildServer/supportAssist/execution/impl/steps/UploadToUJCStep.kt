@@ -6,4 +6,8 @@ class UploadToUJCStep : AbstractScenarioStep() {
     override fun doExecute() {
         TODO("Not yet implemented")
     }
+
+    override fun describe(): String {
+        TODO("Not yet implemented")
+    }
 }

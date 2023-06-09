@@ -3,8 +3,8 @@ package jetbrains.buildServer.supportAssist.execution.impl.steps
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import jetbrains.buildServer.serverSide.SBuildServer
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractScenarioStep
-import jetbrains.buildServer.supportAssist.execution.impl.errors.NotAFileError
-import jetbrains.buildServer.supportAssist.execution.impl.errors.WriteToFileError
+import jetbrains.buildServer.supportAssist.execution.impl.errors.NotAFileProblem
+import jetbrains.buildServer.supportAssist.execution.impl.errors.WriteToFileProblem
 import jetbrains.buildServer.util.DiagnosticUtil
 import java.io.File
 
@@ -28,17 +28,21 @@ class FetchServerInfoToFolderStep(
             .writerWithDefaultPrettyPrinter()
 
         if (targetFile.isDirectory) {
-            val error = NotAFileError(targetFile)
-            addError(error)
+            val problem = NotAFileProblem(targetFile)
+            addProblem(problem)
             return
         } else {
             try {
                 targetFile.createNewFile()
                 mapper.writeValue(targetFile, info)
             } catch (e: Exception) {
-                val error = WriteToFileError(e)
-                addError(error)
+                val problem = WriteToFileProblem(e)
+                addProblem(problem)
             }
         }
+    }
+
+    override fun describe(): String {
+        return "Fetch server information into '${targetFile.absolutePath}' file"
     }
 }

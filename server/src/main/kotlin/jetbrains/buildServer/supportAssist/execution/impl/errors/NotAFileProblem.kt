@@ -1,7 +1,7 @@
 package jetbrains.buildServer.supportAssist.execution.impl.errors
 
 import jetbrains.buildServer.supportAssist.execution.Severity
-import jetbrains.buildServer.supportAssist.execution.StepExecutionError
+import jetbrains.buildServer.supportAssist.execution.StepExecutionProblem
 import java.io.File
 
 /**
@@ -9,9 +9,9 @@ import java.io.File
  *
  * @param file the unexpected object that caused the error.
  */
-class NotAFileError(
+class NotAFileProblem(
     private val file: File
-) : StepExecutionError {
+) : StepExecutionProblem {
     override fun getDescription(): String {
         return "Expected file but got a folder: '${file.absolutePath}'"
     }

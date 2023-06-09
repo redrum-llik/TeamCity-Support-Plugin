@@ -1,6 +1,6 @@
 package jetbrains.buildServer.supportAssist.execution.impl
 
-import jetbrains.buildServer.supportAssist.execution.StepExecutionError
+import jetbrains.buildServer.supportAssist.execution.StepExecutionProblem
 import jetbrains.buildServer.supportAssist.execution.Severity
 
 /**
@@ -9,10 +9,10 @@ import jetbrains.buildServer.supportAssist.execution.Severity
  * @param myDescription A string containing the description of the error.
  * @param mySeverity An optional [Severity] enum value indicating the severity level of the error.
  */
-class ErrorImpl(
+class ProblemImpl(
     private val myDescription: String,
     private val mySeverity: Severity = Severity.ERROR
-) : StepExecutionError {
+) : StepExecutionProblem {
     override fun getDescription(): String {
         return myDescription
     }

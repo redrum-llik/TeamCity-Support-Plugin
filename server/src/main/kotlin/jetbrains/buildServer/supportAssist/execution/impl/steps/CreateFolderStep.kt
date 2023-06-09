@@ -2,12 +2,11 @@ package jetbrains.buildServer.supportAssist.execution.impl.steps
 
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractScenarioStep
 import jetbrains.buildServer.supportAssist.execution.impl.errors.FolderAlreadyExists
-import jetbrains.buildServer.supportAssist.execution.impl.errors.NotAFolderError
+import jetbrains.buildServer.supportAssist.execution.impl.errors.NotAFolderProblem
 import java.io.File
 
 /**
  * Represents a step in a scenario that creates a folder.
- *
  * @param folder the folder to be created
  */
 class CreateFolderStep(
@@ -17,12 +16,16 @@ class CreateFolderStep(
         if (folder.isDirectory) {
             val result = folder.mkdir()
             if (!result) {
-                val error = FolderAlreadyExists(folder)
-                addError(error)
+                val problem = FolderAlreadyExists(folder)
+                addProblem(problem)
             }
         } else {
-            val error = NotAFolderError(folder)
-            addError(error)
+            val problem = NotAFolderProblem(folder)
+            addProblem(problem)
         }
+    }
+
+    override fun describe(): String {
+        return "Create folder at '${folder.absolutePath}' path"
     }
 }

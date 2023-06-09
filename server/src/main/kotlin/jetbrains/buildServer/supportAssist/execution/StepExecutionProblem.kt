@@ -1,9 +1,9 @@
 package jetbrains.buildServer.supportAssist.execution
 
 /**
- * Represents errors that occur during the execution of a [ScenarioStep].
+ * Represents problems that occur during the execution of a [ScenarioStep].
  */
-interface StepExecutionError {
+interface StepExecutionProblem {
     fun getDescription(): String
     fun getSeverity(): Severity
 }
