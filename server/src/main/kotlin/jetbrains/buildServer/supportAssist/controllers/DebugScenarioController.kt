@@ -1,16 +1,24 @@
 package jetbrains.buildServer.supportAssist.controllers
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import jetbrains.buildServer.controllers.BaseController
 import jetbrains.buildServer.log.Loggers
 import jetbrains.buildServer.serverSide.SBuildServer
+import jetbrains.buildServer.supportAssist.execution.ExecutionScenario
 import jetbrains.buildServer.supportAssist.execution.Severity
 import jetbrains.buildServer.supportAssist.execution.StepExecutionProblem
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractExecutionScenario
 import jetbrains.buildServer.supportAssist.execution.impl.AbstractScenarioStep
 import jetbrains.buildServer.supportAssist.execution.impl.ProblemImpl
+import jetbrains.buildServer.supportAssist.execution.impl.steps.ArchiveFolderStep
+import jetbrains.buildServer.supportAssist.execution.impl.steps.FetchServerInfoToFileStep
+import jetbrains.buildServer.util.ExceptionUtil
+import jetbrains.buildServer.util.FileUtil
 import jetbrains.buildServer.web.openapi.WebControllerManager
 import org.jetbrains.annotations.NotNull
 import org.springframework.web.servlet.ModelAndView
+import java.io.File
+import java.io.IOException
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -33,48 +41,45 @@ class DebugScenarioController(
         request: HttpServletRequest,
         response: HttpServletResponse
     ): ModelAndView {
-        // define a minimal step that just prints something to log
-        // and creates a mock error to be returned by controller
-        val minimalStep = object : AbstractScenarioStep() {
-            override fun doExecute() {
-                Loggers.SERVER.warn("This scenario works!")
-                val error = ProblemImpl(
-                    "This is an example of thrown error",
-                    Severity.WARNING
-                )
-                addProblem(error)
-            }
+        val tempFolder = FileUtil.createTempDirectory(
+            "supportPluginData",
+            null
+        )
 
-            override fun describe(): String {
-                return "This is a mock step that just logs something into server log and returns a warning problem"
-            }
-        }
+        val serverInfoFile = File(tempFolder, "serverInfo.json")
 
-        val steps = listOf(minimalStep)
+        val fetchServerInfoStep = FetchServerInfoToFileStep(
+            serverInfoFile,
+            myServer
+        )
+
+        val archiveFile = File(tempFolder, "out.zip")
+
+        val archiveFolderStep = ArchiveFolderStep(
+            archiveFile,
+            tempFolder
+        )
+
+        val steps = listOf(fetchServerInfoStep, archiveFolderStep)
 
         // define a minimal scenario with above step
         val scenario = object : AbstractExecutionScenario(steps) {
             override fun execute(): List<StepExecutionProblem> {
-                val problems: MutableList<List<StepExecutionProblem>> = mutableListOf()
                 for (step in this) {
                     step.execute()
-                    problems.add(step.getProblems())
                     if (step.hasErrorLevelProblems()) {
                         break // do not proceed if step reports at least one error-level execution problem
                     }
 
                 }
-                return problems.flatten()
+                return listOf() // for now it returns empty list; #TODO: see if ExecutionScenario interface should be changed
             }
         }
 
-        // execute scenario and return list of errors serialized to multiline string
+        // execute scenario and return JSON report
+        scenario.execute()
         return simpleView(
-            scenario
-                .execute()
-                .joinToString(
-                    System.lineSeparator()
-                )
+            generateReport(scenario)
         )
     }
 
@@ -92,6 +97,15 @@ class DebugScenarioController(
             }
 
             else -> simpleView("Only GET and POST methods are supported for this endpoint")
+        }
+    }
+
+    companion object {
+        fun generateReport(scenario: ExecutionScenario): String {
+            val mapper = jacksonObjectMapper()
+                .writerWithDefaultPrettyPrinter()
+
+            return mapper.writeValueAsString(scenario)
         }
     }
 }

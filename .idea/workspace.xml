@@ -32,27 +32,10 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85535ec-4337-4a01-8b2d-fdbbe25e6e8e" name="Changes" comment="updated .gitignore">
-      <change afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/ArchiveFailedProblem.kt" afterDir="false" />
+    <list default="true" id="c85535ec-4337-4a01-8b2d-fdbbe25e6e8e" name="Changes" comment="implemented ArchiveFolderStep">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/controllers/DebugScenarioController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/controllers/DebugScenarioController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/ExecutionScenario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/ExecutionScenario.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/ScenarioStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/ScenarioStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/Severity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/Severity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/StepExecutionError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/StepExecutionProblem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/AbstractScenarioStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/AbstractScenarioStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/ErrorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/ProblemImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/ClearFolderError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/ClearFolderProblem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/FolderAlreadyExists.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/FolderAlreadyExists.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/NotAFileError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/NotAFileProblem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/NotAFolderError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/NotAFolderProblem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/WriteToFileError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/errors/WriteToFileProblem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/ArchiveFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/ArchiveFolderStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/ClearFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/ClearFolderStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/CreateFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/CreateFolderStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchLogFilesToFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchLogFilesToFolderStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchServerInfoToFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchServerInfoToFolderStep.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/UploadToUJCStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/UploadToUJCStep.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchServerInfoToFolderStep.kt" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/kotlin/jetbrains/buildServer/supportAssist/execution/impl/steps/FetchServerInfoToFileStep.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +298,7 @@
       <workItem from="1685908769833" duration="9618000" />
       <workItem from="1686225423608" duration="5301000" />
       <workItem from="1686240684280" duration="1453000" />
-      <workItem from="1686242276464" duration="9003000" />
+      <workItem from="1686242276464" duration="10934000" />
     </task>
     <task id="LOCAL-00001" summary="fix a couple of bugs with map/list value delta rendering, change status output to X created/updated...">
       <created>1680044353910</created>
@@ -391,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1686257672827</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="implemented ArchiveFolderStep">
+      <option name="closed" value="true" />
+      <created>1686315815776</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686315815776</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,6 +408,7 @@
     <MESSAGE value="fixed jackson dependency problems" />
     <MESSAGE value="fixed jackson dependency problems for real" />
     <MESSAGE value="updated .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated .gitignore" />
+    <MESSAGE value="implemented ArchiveFolderStep" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented ArchiveFolderStep" />
   </component>
 </project>

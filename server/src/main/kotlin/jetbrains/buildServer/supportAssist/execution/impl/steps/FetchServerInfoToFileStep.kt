@@ -14,7 +14,7 @@ import java.io.File
  * @property targetFile the file to write server information to
  * @property buildServer the [SBuildServer] instance to fetch information from
  */
-class FetchServerInfoToFolderStep(
+class FetchServerInfoToFileStep(
     private val targetFile: File,
     private val buildServer: SBuildServer
 ) : AbstractScenarioStep() {
